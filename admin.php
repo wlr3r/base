@@ -18,9 +18,9 @@
             $resultat = $bdd->query($requete);
 
             foreach ($resultat as $utilisateur) {
-                $dateNaissance = new DateTime($utilisateur['date']);
-                $aujourdHui = new DateTime();
-                $age = $aujourdHui->diff($dateNaissance)->y;
+                $dateNaissance = new DateTime($utilisateur['date']); //convert date naissance  user en date en objet
+                $aujourdHui = new DateTime(); // date ajd
+                $age = $aujourdHui->diff($dateNaissance)->y; //calc age diff date ajd
 
                 echo "<option value='" . $utilisateur['id_user'] . "'>" . "ID: " . $utilisateur['id_user'] . " - " . $utilisateur['nom'] . " - Email: " . $utilisateur['email'] . " - Age: " . $age . "</option>";
             }
